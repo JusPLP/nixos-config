@@ -15,7 +15,7 @@
 
 
 
-  networking.hostName = "jusplp";
+  networking.hostName = "jus";
 
   networking.networkmanager.enable = true; 
 
