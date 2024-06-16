@@ -69,7 +69,6 @@
 	spotify
 	chromium
 	vesktop
-	bitwarden-desktop
     ];
   };
 
