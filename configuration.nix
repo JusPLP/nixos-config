@@ -62,6 +62,10 @@
 
 
 
+  programs.steam.enable = false;
+
+
+
   users.users.jus = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
