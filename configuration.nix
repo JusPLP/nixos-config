@@ -72,7 +72,6 @@
     packages = with pkgs; [
 	spotify
 	chromium
-	vesktop
     ];
   };
 
