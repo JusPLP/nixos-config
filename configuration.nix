@@ -27,7 +27,7 @@
 
 
 
-  services.xserver.enable = true;
+  services.xserver.enable = false;
   services.xserver.xkb.layout = "de";
 
   
