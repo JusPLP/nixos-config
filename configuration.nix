@@ -65,7 +65,7 @@
 
 
   # Programs
-  programs.steam.enable = true;
+  programs.steam.enable = false;
 
 
   # System Packages
