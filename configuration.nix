@@ -72,6 +72,7 @@
   environment.systemPackages = with pkgs; [
     google-chrome
     spotify
+    vesktop
 
     fastfetch
     fd
@@ -93,10 +94,6 @@
 
   # Nixpkgs Configuration
   nixpkgs.config = {
-    chromium = { 
-      enableWideVine = true;
-      };
-
     allowUnfree = true;
   };
 
