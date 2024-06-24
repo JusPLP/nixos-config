@@ -70,7 +70,7 @@
 
   # System Packages
   environment.systemPackages = with pkgs; [
-    brave
+    google-chrome
     spotify
 
     fastfetch
