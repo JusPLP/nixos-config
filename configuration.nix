@@ -72,6 +72,7 @@
   environment.systemPackages = with pkgs; [
     chromium
     spotify
+    vesktop
 
     fastfetch
     fd
@@ -101,4 +102,17 @@
   };
 
 
+  # Fix Suspend
+  systemd.services.fixSuspendIssue = {
+    description = "Fix for the suspend issue";
+    after = [ "network.target" ];
+
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "/bin/sh -c 'echo GPP0 > /proc/acpi/wakeup'";
+      RemainAfterExit = true;
+    };
+
+    wantedBy = [ "multi-user.target" ];
+  };
 }
