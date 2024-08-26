@@ -13,7 +13,7 @@
 
 
   # Network Configuration
-  networking.hostName = "jus";
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true; 
 
 
@@ -35,20 +35,13 @@
 
 
   # X-Server and Desktop Configuration
-  services.xserver.enable = false;
-  services.xserver.xkb.layout = "de";
-  
-  services.displayManager.sddm.wayland.enable = true; # Experimental
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.xserver = {
+    enable = true;
+    xkb.layout = "de";
 
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    okular
-    elisa
-    oxygen
-    khelpcenter
-    plasma-browser-integration
-  ];
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
 
 
   # Audio Configuration
@@ -59,24 +52,9 @@
   };
 
 
-  # Shell
-  programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish;  
-
-
-  # Programs
-  programs.steam.enable = false;
-
-
   # System Packages
   environment.systemPackages = with pkgs; [
-    chromium
-    spotify
-    vesktop
-
     fastfetch
-    fd
-    eza
 
     # Driver
     mesa
@@ -94,10 +72,6 @@
 
   # Nixpkgs Configuration
   nixpkgs.config = {
-    chromium = {
-      enableWideVine = true;
-    };
-
     allowUnfree = true;
   };
 
