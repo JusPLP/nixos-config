@@ -48,6 +48,10 @@
   };
 
 
+  # Enable flatpak
+  services.flatpak.enable = true;
+
+
   # Audio Configuration
   hardware.pulseaudio.enable = false;
   services.pipewire = {
