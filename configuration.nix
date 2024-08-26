@@ -13,7 +13,7 @@
 
 
   # Zram configuration
-  zramSwap.enable
+  zramSwap.enable = true;
 
 
   # Network Configuration
