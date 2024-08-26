@@ -12,6 +12,10 @@
   boot.loader.systemd-boot.consoleMode = "max";
 
 
+  # Zram configuration
+  zramSwap.enable
+
+
   # Network Configuration
   networking.hostName = "nixos";
   networking.networkmanager.enable = true; 
