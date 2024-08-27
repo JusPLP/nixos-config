@@ -39,10 +39,6 @@
   console.keyMap = "de";
 
 
-  # OpenGL Configuration
-  hardware.graphics.enable = true;
-
-
   # X-Server and Desktop Configuration
   services.xserver = {
     enable = true;
