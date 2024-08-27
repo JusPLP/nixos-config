@@ -6,19 +6,24 @@
   ];
 
 
-  # systemd-boot Configuration
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.consoleMode = "max";
+  # Boot Configuration
+  boot = {
+    loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = true;
+    loader.systemd-boot.consoleMode = "max";
+    loader.timeout = 2;
+  };
 
 
-  # Zram configuration
+  # Zram Configuration
   zramSwap.enable = true;
 
 
   # Network Configuration
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true; 
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true; 
+  };
 
 
   # User Configuration
@@ -34,10 +39,6 @@
   console.keyMap = "de";
 
 
-  # System Version
-  system.stateVersion = "24.05";
-
-
   # X-Server and Desktop Configuration
   services.xserver = {
     enable = true;
@@ -48,10 +49,6 @@
   };
 
 
-  # Enable flatpak
-  services.flatpak.enable = true;
-
-
   # Audio Configuration
   hardware.pulseaudio.enable = false;
   services.pipewire = {
@@ -60,8 +57,13 @@
   };
 
 
+  # Enable flatpak
+  services.flatpak.enable = true;
+
+
   # System Packages
   environment.systemPackages = with pkgs; [
+    gnome-tweaks    
     fastfetch
 
     # Driver
@@ -97,4 +99,8 @@
 
     wantedBy = [ "multi-user.target" ];
   };
+
+
+  # System Version
+  system.stateVersion = "24.05";
 }
