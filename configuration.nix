@@ -39,6 +39,10 @@
   console.keyMap = "de";
 
 
+  # OpenGL Configuration
+  hardware.graphics.enable = true;
+
+
   # X-Server and Desktop Configuration
   services.xserver = {
     enable = true;
@@ -65,9 +69,6 @@
   environment.systemPackages = with pkgs; [
     gnome-tweaks    
     fastfetch
-
-    # Driver
-    mesa
   ];
 
 
