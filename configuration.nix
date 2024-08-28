@@ -19,17 +19,15 @@
   zramSwap.enable = true;
 
 
-  # Network Configuration
-  networking = {
-    hostName = "nixos";
-    networkmanager.enable = true; 
-  };
-
-
   # User Configuration
   users.users.jus = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+
+    packages = with pkgs; [
+      chromium
+      spotify
+    ];
   };
 
 
@@ -39,26 +37,11 @@
   console.keyMap = "de";
 
 
-  # X-Server and Desktop Configuration
-  services.xserver = {
-    enable = true;
-    xkb.layout = "de";
-
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+  # Network Configuration
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true; 
   };
-
-
-  # Audio Configuration
-  hardware.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-
-
-  # Enable flatpak
-  services.flatpak.enable = true;
 
 
   # System Packages
@@ -80,6 +63,28 @@
   # Nixpkgs Configuration
   nixpkgs.config = {
     allowUnfree = true;
+  };
+
+
+  # Enable flatpak
+  services.flatpak.enable = true;
+
+
+  # X-Server and Desktop Configuration
+  services.xserver = {
+    enable = true;
+    xkb.layout = "de";
+
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+
+
+  # Audio Configuration
+  hardware.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
   };
 
 
